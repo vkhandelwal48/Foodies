@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import logoImg from "@/assets/logo.png";
 import classes from "./main-header.module.css";
 
@@ -7,7 +8,7 @@ export default function MainHeader() {
         <header className={classes.header}>
             <h1>Foodies App</h1>
             <Link className={classes.logo} href="/">
-                <img src={logoImg.src} alt="A plate with Food on it" />
+                <Image src={logoImg} alt="A plate with Food on it" priority />
                 NextLevel Food
             </Link>
             <nav className={classes.nav}>
@@ -23,3 +24,7 @@ export default function MainHeader() {
         </header>
     );
 }
+
+// Image helps in lazy loading and optimizing images
+// Link helps in client-side navigation, which is faster than traditional navigation
+// CSS modules help in scoping styles to this component only, preventing global style conflicts
