@@ -1,12 +1,13 @@
 import Link from "next/link";
 import classes from "./page.module.css";
+import ImageSlideshow from "./components/images/image-slideshow";
 
 export default function Home() {
   return (
     <>
       <header className={classes.header}>
         <div className={classes.slideshow}>
-
+          <ImageSlideshow />
         </div>
         <div>
           <div className={classes.hero}>
@@ -49,3 +50,8 @@ export default function Home() {
     </>
   );
 }
+
+// Executes on server not on browser
+// This code will not run in the browser
+// Advantage : Server-side rendering can improve performance and SEO, less client-side JavaScript is needed
+// On the server, Components that are pre rendered but then also potenially hydrated on the client
