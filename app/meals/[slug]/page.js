@@ -1,9 +1,13 @@
 import Image from "next/image";
 import classes from "./page.module.css";
 import { getMeal } from "@/lib/meals";
+import { notFound } from "next/navigation";
 
 export default function MealDetailsPage({ params }) {
     const meal = getMeal(params.slug);
+    if (!meal) {
+        notFound();
+    }
     meal.instructions = meal.instructions.replace(/\n/g, '<br>'); // Convert newlines to <br> for HTML rendering
     return (
         <>
