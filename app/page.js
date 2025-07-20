@@ -55,3 +55,7 @@ export default function Home() {
 // This code will not run in the browser
 // Advantage : Server-side rendering can improve performance and SEO, less client-side JavaScript is needed
 // On the server, Components that are pre rendered but then also potenially hydrated on the client
+
+// Next.js caches the page once you visit it, so the next time you visit the page, 
+// it will be served from the cache, not from the server. This means that the page will load faster,
+// and you will not have to wait for the server to respond.
