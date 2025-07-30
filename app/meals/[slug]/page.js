@@ -4,20 +4,22 @@ import { getMeal } from "@/lib/meals";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }) { // this function receives same data as the page component
-    const meal = await getMeal(params.slug);
+    const awaitedParams = await params;
+    const meal = await getMeal(awaitedParams.slug);
 
     if(!meal) {
         notFound();
     }
-    
+
     return {
         title: meal.title,
         description: meal.summary,
     }
 }
 
-export default function MealDetailsPage({ params }) {
-    const meal = getMeal(params.slug);
+export default async function MealDetailsPage({ params }) {
+    const awaitedParams = await params;
+    const meal = await getMeal(awaitedParams.slug);
     if (!meal) {
         notFound();
     }
